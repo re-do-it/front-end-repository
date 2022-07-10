@@ -1,0 +1,29 @@
+.arrows {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 80vw;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header {
+    display: flex;
+}
+
+.header .dropdown {
+    float: right;
+
+}
+
+.header>.btn-secondary {
+    background-color: red;
+    width: 1000px;
+}

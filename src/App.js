@@ -7,6 +7,7 @@ import Footer from '../src/Components/Footer';
 import Homepage from '../src/Components/Main/Homepage';
 import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
+import ContentCards from './Components/Main/Homepage/ContentCards';
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
@@ -16,6 +17,7 @@ function App() {
 				loggedIn? <NavbarSignedIn />: <NavbarSignedOut />
 			</header>
 			<main>
+				<ContentCards/>
 				<Routes>
 					<Route path='/' element={<Homepage />} />
 					<Route path='/login' element={<LoginPage />} />
