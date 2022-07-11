@@ -34,6 +34,11 @@ function NavbarSignedOut(props) {
 		navigate('/signup');
 	}
 
+	//function for new post
+	function handleNewPost(event) {
+		event.preventDefault();
+		navigate('/newpost');
+	}
 	// function for user
 	function handleUser(event) {
 		event.preventDefault();
@@ -68,6 +73,14 @@ function NavbarSignedOut(props) {
 							onClick={handleSignUp}>
 							<button className='btn' type='submit'>
 								Sign Up
+							</button>
+						</Nav.Link>
+
+						<Nav.Link
+							className='d-flex align-items-center justify-content-center'
+							onClick={handleNewPost}>
+							<button className='btn' type='submit'>
+								Create a Post
 							</button>
 						</Nav.Link>
 					</Nav>
