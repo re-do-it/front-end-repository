@@ -1,0 +1,38 @@
+.form {
+    background-color: rgb(26, 26, 26);
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}
+
+.button-box {
+    text-align: center;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.signup{
+    /* width: 30%; */
+    height: fit-content;
+}
+
+.signin {
+    width: fit-content;
+    height: fit-content;
+}
+
+.signup-text{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: pink
+}
