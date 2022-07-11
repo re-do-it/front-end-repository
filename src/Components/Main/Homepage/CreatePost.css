@@ -1,5 +1,6 @@
 .create-post {
     height: 55vh;
+    max-height: 370px;
     width: 60vw;
     background-color: rgb(26, 26, 26);
     border: solid rgb(52, 52, 52);
