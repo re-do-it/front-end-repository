@@ -34,7 +34,7 @@ function SignupPage(props) {
 				id='sign-in-form'
 				className='text-center w-100 form'
 				style={{
-					padding: '1em 3em'
+					padding: '1em 3em',
 				}}>
 				<h1 className='mb-5 fs-3 fw-normal'>Please Sign up</h1>
 				<Form.Group controlId='name'>
