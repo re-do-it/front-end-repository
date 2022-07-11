@@ -13,8 +13,17 @@ function ContentCards(props) {
    const [count, setCount] = useState(0);
     return (
 			<div className='cards'>
-				<Card>
+				<Card className='form'>
 					<Card.Header className='header'>
+						<div className='d-flex flex-row'>
+							<button>
+								<BsFillArrowUpSquareFill className='arrow' />
+							</button>
+							<span className='m-3'>5</span>
+							<button>
+								<BsFillArrowDownSquareFill className='arrow m-2' />
+							</button>
+						</div>
 						Posted by: User123 4 hours ago
 						<DropdownButton
 							className='drop-down'
@@ -25,23 +34,15 @@ function ContentCards(props) {
 							<Dropdown.Item href='#/action-3'></Dropdown.Item>
 						</DropdownButton>
 					</Card.Header>
-					<div className='arrows'>
-						<button>
-							<BsFillArrowUpSquareFill className='arrow' />
-						</button>
-						<button>
-							<BsFillArrowDownSquareFill className='arrow' />
-						</button>
-					</div>
 					<Card.Body className='cardBody'>
 						<Card.Title>insert title</Card.Title>
 						<Card.Text>
 							With supporting text below as a natural lead-in to additional
 							content.
 						</Card.Text>
-						<Button className='commentButton' variant='primary'>
+						<button className='btn d-flex justify-content-start'>
 							comments
-						</Button>
+						</button>
 					</Card.Body>
 				</Card>
 			</div>
