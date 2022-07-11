@@ -72,8 +72,7 @@ function LoginPage(props) {
 						</button>
 					</div>
 					<div className='d-grid mb-5 signin button'>
-						<button className='btn'
-							 type='submit'>
+						<button className='btn' type='submit'>
 							Sign In
 						</button>
 					</div>

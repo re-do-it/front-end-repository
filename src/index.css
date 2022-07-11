@@ -81,7 +81,9 @@ button {
 .btn {
     color: rgb(148, 148, 148) !important;
     font-weight: 900;
+    background-color: inherit;
 }
+
 
 .btn:hover {
     color: rgb(220, 220, 220) !important;
