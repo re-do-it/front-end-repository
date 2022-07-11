@@ -46,6 +46,12 @@ function NavbarSignedIn(props) {
 							</Dropdown>
 						</Nav.Link>
 					</Nav>
+
+					<Nav.Link className='d-flex align-items-center justify-content-center'>
+						<button className='btn' type='submit'>
+							Create a Post
+						</button>
+					</Nav.Link>
 				</Container>
 			</Navbar>
 		</div>
