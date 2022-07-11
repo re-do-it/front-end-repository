@@ -1,7 +1,12 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, DropdownButton,Dropdown } from 'react-bootstrap';
 import  { useState } from 'react';
-
+import './contentcards.css';
+ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	BsFillArrowUpSquareFill,
+	BsFillArrowDownSquareFill,
+} from 'react-icons/bs';
 
 
 function ContentCards(props) {
@@ -10,42 +15,33 @@ function ContentCards(props) {
 			<div className='cards'>
 				<Card>
 					<Card.Header className='header'>
-						Featured
-						<div class='dropdown'>
-							<button
-								class='btn btn-secondary dropdown-toggle'
-								type='button'
-								id='dropdownMenuButton'
-								data-toggle='dropdown'
-								aria-haspopup='true'
-								aria-expanded='false'>
-								Dropdown button
-							</button>
-							<div class='dropdown-menu' aria-labelledby='dropdownMenuButton'>
-								<a className='dropdown-item' href='#'>
-									Action
-								</a>
-								<a className='dropdown-item' href='#'>
-									Another action
-								</a>
-								<a className='dropdown-item' href='#'>
-									Something else here
-								</a>
-							</div>
-						</div>
+						Posted by: User123 4 hours ago
+						<DropdownButton
+							className='drop-down'
+							id='dropdown-basic-button'
+							title=''>
+							<Dropdown.Item href='#/action-1'>Delete post</Dropdown.Item>
+							<Dropdown.Item href='#/action-2'>Edit Post</Dropdown.Item>
+							<Dropdown.Item href='#/action-3'></Dropdown.Item>
+						</DropdownButton>
 					</Card.Header>
-					<Card.Body>
-						<div className='arrows'>
-							<i className='bi bi-arrow-up-square-fill' height='100px'></i>
-							<i className='bi bi-arrow-down-square-fill'></i>
-						</div>
-
-						<Card.Title>Special title treatment</Card.Title>
+					<div className='arrows'>
+						<button>
+							<BsFillArrowUpSquareFill className='arrow' />
+						</button>
+						<button>
+							<BsFillArrowDownSquareFill className='arrow' />
+						</button>
+					</div>
+					<Card.Body className='cardBody'>
+						<Card.Title>insert title</Card.Title>
 						<Card.Text>
 							With supporting text below as a natural lead-in to additional
 							content.
 						</Card.Text>
-						<Button variant='primary'>comment</Button>
+						<Button className='commentButton' variant='primary'>
+							comments
+						</Button>
 					</Card.Body>
 				</Card>
 			</div>
