@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-// import './SignInForm.css';
+import './LoginPage.css';
 
 function LoginPage(props) {
 	const initialFormState = {
@@ -77,11 +77,20 @@ function LoginPage(props) {
 					className='d-flex justify-content-center mb-5'>
 					<Form.Check label='Remember me' />
 				</Form.Group>
-				<div className='d-grid mb-5'>
-					<Button variant='primary' size='lg' type='submit'>
-						Sign In
-					</Button>
+				<div className='button-box'>
+					<div className='d-grid mb-5 signup button '>
+						<Button variant='secondary' size='sm' type='submit'>
+							<p className='signup-text'>Don't have an account?</p>
+							<p className='signup-text'>Sign up!</p>
+						</Button>
+					</div>
+					<div className='d-grid mb-5 signin button'>
+						<Button variant='primary' size='lg' type='submit'>
+							Sign In
+						</Button>
+					</div>
 				</div>
+
 				<p className='text-muted'>&copy; 2021-2022</p>
 			</Form>
 		</Container>

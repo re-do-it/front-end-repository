@@ -1,0 +1,22 @@
+.button-box {
+    text-align: center;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.signup{
+    /* width: 30%; */
+    height: fit-content;
+}
+
+.signin {
+    width: fit-content;
+    height: fit-content;
+}
+
+.signup-text{
+    margin-top: 0;
+    margin-bottom: 0;
+}
