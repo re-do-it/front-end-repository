@@ -76,3 +76,19 @@ button {
         padding: 0 125px;
     }
 }
+
+/* Default buttons */
+.btn {
+    color: rgb(148, 148, 148) !important;
+    font-weight: 900;
+}
+
+.btn:hover {
+    color: rgb(220, 220, 220) !important;
+}
+
+.input {
+    background-color: inherit;
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}

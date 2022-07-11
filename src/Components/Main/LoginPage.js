@@ -25,17 +25,13 @@ function LoginPage(props) {
 	}
 
 	return (
-		<Container
-			id='main-container'
-			style={{ height: '6em', width: '30em', display: 'grid' }}>
+		<Container style={{ height: '6em', width: '30em', display: 'grid' }}>
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
-				className='text-center w-100'
+				className='text-center w-100 form'
 				style={{
 					padding: '1em 3em',
-					boxShadow: '0 4px 15px 0',
-					backgroundColor: 'rgb(250,250,255)',
 				}}>
 				<h1 className='mb-5 fs-3 fw-normal'>Please Sign in</h1>
 
@@ -45,7 +41,7 @@ function LoginPage(props) {
 						size='lg'
 						placeholder='Email address'
 						autoComplete='username'
-						className='position-relative mb-1'
+						className='position-relative mb-1 input'
 						value={formState.username}
 						onChange={handleChange}
 					/>
@@ -56,7 +52,7 @@ function LoginPage(props) {
 						size='lg'
 						placeholder='Password'
 						autoComplete='current-password'
-						className='position-relative mb-4'
+						className='position-relative mb-4 input'
 						value={formState.password}
 						onChange={handleChange}
 					/>
@@ -67,18 +63,19 @@ function LoginPage(props) {
 					<Form.Check label='Remember me' />
 				</Form.Group>
 				<div className='button-box'>
-					<div className='d-grid mb-5 signup button '>
-						<Button variant='secondary' type='button'>
+					<div className='d-grid mb-5 signup button'>
+						<button className='btn' type='button'>
 							<p className='signup-text'>Don't have an account?</p>
 							<a href='' className='signup-text'>
 								Sign up!
 							</a>
-						</Button>
+						</button>
 					</div>
 					<div className='d-grid mb-5 signin button'>
-						<Button variant='primary' type='submit'>
+						<button className='btn'
+							 type='submit'>
 							Sign In
-						</Button>
+						</button>
 					</div>
 				</div>
 
