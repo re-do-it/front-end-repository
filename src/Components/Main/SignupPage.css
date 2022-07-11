@@ -6,7 +6,7 @@
     padding: 0;
 }
 
-.signup{
+.signup {
     /* width: 30%; */
     height: fit-content;
 }
@@ -16,17 +16,17 @@
     height: fit-content;
 }
 
-.signup-text{
+.signup-text {
     margin-top: 0;
     margin-bottom: 0;
     padding: 0;
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
 
-a:hover{
+a:hover {
     color: pink
 }

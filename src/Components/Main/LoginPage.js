@@ -7,7 +7,6 @@ import './LoginPage.css';
 
 function LoginPage(props) {
 	const initialFormState = {
-		name: '',
 		username: '',
 		password: '',
 	};
@@ -28,7 +27,7 @@ function LoginPage(props) {
 	return (
 		<Container
 			id='main-container'
-			style={{ height: '70vh', width: '50vw', display: 'grid' }}>
+			style={{ height: '6em', width: '30em', display: 'grid' }}>
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
@@ -39,17 +38,7 @@ function LoginPage(props) {
 					backgroundColor: 'rgb(250,250,255)',
 				}}>
 				<h1 className='mb-5 fs-3 fw-normal'>Please Sign in</h1>
-				<Form.Group controlId='name'>
-					<Form.Control
-						type='text'
-						size='lg'
-						placeholder='Your Name'
-						// autoComplete='username'
-						className='position-relative mb-1'
-						value={formState.name}
-						onChange={handleChange}
-					/>
-				</Form.Group>
+
 				<Form.Group controlId='username'>
 					<Form.Control
 						type='email'
@@ -79,19 +68,21 @@ function LoginPage(props) {
 				</Form.Group>
 				<div className='button-box'>
 					<div className='d-grid mb-5 signup button '>
-						<Button variant='secondary' size='sm' type='submit'>
+						<Button variant='secondary' type='button'>
 							<p className='signup-text'>Don't have an account?</p>
-							<p className='signup-text'>Sign up!</p>
+							<a href='' className='signup-text'>
+								Sign up!
+							</a>
 						</Button>
 					</div>
 					<div className='d-grid mb-5 signin button'>
-						<Button variant='primary' size='lg' type='submit'>
+						<Button variant='primary' type='submit'>
 							Sign In
 						</Button>
 					</div>
 				</div>
 
-				<p className='text-muted'>&copy; 2021-2022</p>
+				{/* <p className='text-muted'>&copy; 2021-2022</p> */}
 			</Form>
 		</Container>
 	);
