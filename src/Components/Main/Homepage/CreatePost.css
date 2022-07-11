@@ -1,0 +1,43 @@
+.create-post {
+    height: 55vh;
+    width: 60vw;
+    background-color: rgb(26, 26, 26);
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}
+
+.title-input {
+    height: 3rem;
+    width: 100%;
+    background-color: inherit;
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}
+
+.body-input {
+    height: 13rem;
+    width: 100%;
+    background-color: inherit;
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}
+
+.bottom-button-container {
+    width: 98%;
+}
+
+.btn {
+    border: solid rgb(52, 52, 52);
+    border-radius: 1rem;
+}
+
+input[type="text"]::placeholder {
+    margin-left: 1rem;
+    font-size: 1.3rem;
+}
+
+input, select, textarea {
+    padding-left: 1rem;
+    color: rgb(220, 220, 220);
+    font-size: 1.3rem;
+}
