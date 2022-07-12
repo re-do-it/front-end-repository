@@ -10,17 +10,28 @@ import {
 
 
 function ContentCards(props) {
-   const [count, setCount] = useState(0);
+   const [vote, setVote] = useState(0);
+   let incrementVote = () => {
+			setVote(vote + 1);
+		};
+
+	let decrementVote = () => {
+			setVote(vote - 1);
+
+		};
     return (
 			<div className='cards'>
 				<Card className='form'>
 					<Card.Header className='header'>
 						<div className='d-flex flex-row'>
-							<button>
-								<BsFillArrowUpSquareFill className='arrow' />
+							<button onClick={incrementVote}>
+								<BsFillArrowUpSquareFill
+									className='arrow'
+									
+								/>
 							</button>
-							<span className='m-3'>5</span>
-							<button>
+							<span className='m-3'>{vote}</span>
+							<button onClick={decrementVote} >
 								<BsFillArrowDownSquareFill className='arrow m-2' />
 							</button>
 						</div>
