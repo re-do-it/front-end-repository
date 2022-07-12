@@ -31,7 +31,7 @@ function ContentCards(props) {
 								/>
 							</button>
 							<span className='m-3'>{vote}</span>
-							<button onClick={decrementVote} disabled={vote < 1}>
+							<button onClick={decrementVote} >
 								<BsFillArrowDownSquareFill className='arrow m-2' />
 							</button>
 						</div>
