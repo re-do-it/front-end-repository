@@ -13,11 +13,11 @@ function ContentCards(props) {
    const [vote, setVote] = useState(0);
    let incrementVote = () => {
 			setVote(vote + 1);
-			console.log('add')
 		};
 
-		let decrementVote = () => {
+	let decrementVote = () => {
 			setVote(vote - 1);
+
 		};
     return (
 			<div className='cards'>
@@ -27,11 +27,11 @@ function ContentCards(props) {
 							<button onClick={incrementVote}>
 								<BsFillArrowUpSquareFill
 									className='arrow'
-									action={incrementVote}
+									
 								/>
 							</button>
 							<span className='m-3'>{vote}</span>
-							<button onClick={decrementVote}>
+							<button onClick={decrementVote} disabled={vote < 1}>
 								<BsFillArrowDownSquareFill className='arrow m-2' />
 							</button>
 						</div>
