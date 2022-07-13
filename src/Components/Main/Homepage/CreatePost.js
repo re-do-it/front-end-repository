@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreatePost(props) {
+
    const navigate = useNavigate();
 		const initialPostState = {
 			title: '',
@@ -41,6 +42,7 @@ function CreatePost(props) {
 				}
 			
         }
+
 	return (
 		<Form
 			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
