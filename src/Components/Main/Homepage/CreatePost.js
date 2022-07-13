@@ -1,6 +1,8 @@
 import './CreatePost.css';
-
+import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function CreatePost(props) {
 	const navigate = useNavigate();
@@ -37,16 +39,29 @@ function CreatePost(props) {
 			console.log(error);
 		}
 	};
-
 	return (
-		<Form className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'>
-			<Form.Control className='title-input' type='text' placeholder='Title' />
+		<Form
+			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
+			onSubmit={handleSubmit}>
+			<Form.Group controlId='title'>
+				<Form.Control
+					className='title-input'
+					type='text'
+					placeholder='Title'
+					value={postState.title}
+					onChange={handleChange}
+				/>
+			</Form.Group>
 
-			<Form.Control
-				className='body-input d-flex justify-content-start'
-				type='text'
-				placeholder='Your Text'
-			/>
+			<Form.Group controlId='body'>
+				<Form.Control
+					className='body-input d-flex justify-content-start'
+					type='text'
+					placeholder='Your Text'
+					onChange={handleChange}
+					value={postState.body}
+				/>
+			</Form.Group>
 
 			<div className='bottom-button-container d-flex justify-content-end gap-2'>
 				<button className='btn'>Cancel</button>
