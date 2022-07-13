@@ -7,7 +7,7 @@ function CreatePost(props) {
 
     function handleChange(event) {
 			setSearchString(event.target.value);
-           console.log('text')
+          
 		} 
         function handleSubmit(event) {
 		event.preventDefault();
