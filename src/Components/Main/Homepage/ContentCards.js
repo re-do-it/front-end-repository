@@ -10,8 +10,8 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-function ContentCards(props) {
-	const { id } = useParams();
+function ContentCards({ title, body, createdAt, id, getPosts }) {
+	// const { id } = useParams();
 	const navigate = useNavigate();
 
 	const [vote, setVote] = useState(0);
@@ -26,9 +26,10 @@ function ContentCards(props) {
 	const handleDelete = async () => {
 		try {
 			const response = await axios.delete(
-				`https://redoit-api.herokuapp.com/api/posts/${id}`
+				`https://redoit-api.herokuapp.com/api/posts/${String(id)}`
 			);
-			if (response.status === 200) {
+			if (response.status === 204) {
+				getPosts();
 				navigate('/');
 			}
 		} catch (error) {}
@@ -61,7 +62,8 @@ function ContentCards(props) {
 							<BsFillArrowDownSquareFill className='arrow m-2' />
 						</button>
 					</div>
-					Posted by: User123 4 hours ago
+					Posted by: {createdAt}
+					Id: {id}
 					<DropdownButton
 						className='drop-down'
 						id='dropdown-basic-button'
@@ -75,11 +77,8 @@ function ContentCards(props) {
 					</DropdownButton>
 				</Card.Header>
 				<Card.Body className='cardBody'>
-					<Card.Title>insert title</Card.Title>
-					<Card.Text>
-						With supporting text below as a natural lead-in to additional
-						content.
-					</Card.Text>
+					<Card.Title>{title}</Card.Title>
+					<Card.Text>{body}</Card.Text>
 					<button className='btn d-flex justify-content-start'>comments</button>
 				</Card.Body>
 			</Card>

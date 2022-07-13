@@ -5,44 +5,40 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function CreatePost(props) {
+	const navigate = useNavigate();
+	const initialPostState = {
+		title: '',
+		body: '',
+	};
 
-   const navigate = useNavigate();
-		const initialPostState = {
-			title: '',
-			body: '',
-			
-		};
+	const [postState, setPostState] = useState(initialPostState);
 
-		const [postState, setPostState] = useState(initialPostState);
-
-   function handleChange(event) {
-			setPostState({ ...postState, [event.target.id]: event.target.value });
-		}
-        const handleSubmit =async (event) => {
+	function handleChange(event) {
+		setPostState({ ...postState, [event.target.id]: event.target.value });
+	}
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-        try {
-					const response = await axios.post(
-						'https://redoit-api.herokuapp.com/api/posts',
-						postState
-					);
-					// const response = await fetch('http://localhost:3111/icecreams', {
-					// 	method: 'POST',
-					// 	body: JSON.stringify(flavor),
-					// 	headers:{
-					// 		'Content-type': 'application/json'
-					// 	}
-					// });
-					console.log(response);
-					if (response.status === 201) {
-						navigate('/');
-						console.log(response)
-					}
-				} catch (error) {
-					console.log(error);
-				}
-			
-        }
-
+		try {
+			const response = await axios.post(
+				'https://redoit-api.herokuapp.com/api/posts',
+				postState
+			);
+			// const response = await fetch('http://localhost:3111/icecreams', {
+			// 	method: 'POST',
+			// 	body: JSON.stringify(flavor),
+			// 	headers:{
+			// 		'Content-type': 'application/json'
+			// 	}
+			// });
+			console.log(response);
+			if (response.status === 201) {
+				navigate('/');
+				console.log(response);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	return (
 		<Form
 			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
@@ -73,8 +69,6 @@ function CreatePost(props) {
 			</div>
 		</Form>
 	);
-    }
-
-
+}
 
 export default CreatePost;
