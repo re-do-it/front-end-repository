@@ -1,9 +1,10 @@
 .filter-posts {
 height: 10vh;
-width: 70vw;
+width: 100%;
 background-color: rgb(26, 26, 26);
 border: solid rgb(52, 52, 52);
-border-radius: 2%;
+border-radius: 1rem;
+position: relative;
 }
 
 .btn {

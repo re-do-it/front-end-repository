@@ -19,7 +19,6 @@ function App() {
 		<>
 			<header>
 				{loggedIn ? <NavbarSignedIn /> : <NavbarSignedOut />}
-				<FilterPosts />
 			</header>
 			<main>
 				<Routes>

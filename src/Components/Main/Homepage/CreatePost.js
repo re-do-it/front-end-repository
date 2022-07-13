@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 function CreatePost(props) {
 	return (
-		<Form className='create-post d-flex flex-column align-items-center p-3 gap-3'>
+		<Form className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'>
 			<Form.Control className='title-input' type='text' placeholder='Title' />
 
 			<Form.Control
@@ -14,6 +14,7 @@ function CreatePost(props) {
 			/>
 
 			<div className='bottom-button-container d-flex justify-content-end gap-2'>
+				<button className='btn'>Cancel</button>
 				<button className='btn'>Post</button>
 			</div>
 		</Form>
