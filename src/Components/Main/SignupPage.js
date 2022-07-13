@@ -45,7 +45,7 @@ function SignupPage(props) {
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
-				className='text-center w-100 form'
+				className='text-center w-100 form mt-5'
 				style={{
 					padding: '1em 3em',
 				}}>
