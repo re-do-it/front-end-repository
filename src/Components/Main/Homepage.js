@@ -5,7 +5,6 @@ import './Homepage.css';
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { faPooStorm } from '@fortawesome/free-solid-svg-icons';
 
 function Homepage(props) {
 	const [currentPosts, setCurrentPosts] = useState([]);
