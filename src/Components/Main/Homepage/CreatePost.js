@@ -21,7 +21,7 @@ function CreatePost(props) {
 		event.preventDefault();
         try {
 					const response = await axios.post(
-						'http://localhost:8000/api/posts',
+						'https://redoit-api.herokuapp.com/api/posts',
 						postState
 					);
 					// const response = await fetch('http://localhost:3111/icecreams', {
