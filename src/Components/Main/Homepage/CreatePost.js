@@ -1,16 +1,42 @@
 import './CreatePost.css';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function CreatePost(props) {
-      const [searchString, setSearchString] = useState('');
+    const navigate = useNavigate();
+      const [searchString, setSearchString] = useState({
+				title: '',
+				body: '',
+			});
 
     function handleChange(event) {
 			setSearchString(event.target.value);
           
 		} 
-        function handleSubmit(event) {
+        const handleSubmit =async (event) => {
 		event.preventDefault();
+        try {
+					const response = await axios.post(
+						'https://redoit-api.herokuapp.com/api/post',
+						searchString
+					);
+					// const response = await fetch('http://localhost:3111/icecreams', {
+					// 	method: 'POST',
+					// 	body: JSON.stringify(flavor),
+					// 	headers:{
+					// 		'Content-type': 'application/json'
+					// 	}
+					// });
+					console.log(response);
+					if (response.status === 201) {
+						console.log(response)
+					}
+				} catch (error) {
+					console.log(error);
+				}
+				
         }
 	return (
 		<Form className='create-post d-flex flex-column align-items-center p-3 gap-3' onSubmit={handleSubmit}>
