@@ -23,6 +23,7 @@ function CreatePost(props) {
 			/>
 
 			<div className='bottom-button-container d-flex justify-content-end gap-2'>
+				<button className='btn'>Cancel</button>
 				<button className='btn'>Post</button>
 			</div>
 		</Form>

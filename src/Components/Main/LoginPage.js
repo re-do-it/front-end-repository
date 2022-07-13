@@ -29,11 +29,11 @@ function LoginPage(props) {
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
-				className='text-center w-100 form'
+				className='text-center w-100 form mt-5'
 				style={{
 					padding: '1em 3em',
 				}}>
-				<h1 className='mb-5 fs-3 fw-normal'>Please Sign in</h1>
+				<h1 className='mb-5 fs-3 fw-normal'>Please Log In</h1>
 
 				<Form.Group controlId='username'>
 					<Form.Control
