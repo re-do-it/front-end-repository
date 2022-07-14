@@ -59,6 +59,7 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 			console.log(response);
 			if (response.status === 200) {
 				getPost();
+                setCommentState(initialCommentState);
 			}
 		} catch (error) {
 			console.log(error);
