@@ -11,7 +11,8 @@ function Homepage(props) {
 	//fetch all the posts
 	const getPosts = async () => {
 		try {
-			const res = await axios.get(`https://redoit-api.herokuapp.com/api/posts`);
+			 const res = await axios.get(`https://redoit-api.herokuapp.com/api/posts`);
+			// const res = await axios.get(`http://localhost:8000/api/posts`);
 			let data = res.data;
 			console.log(data);
 			setCurrentPosts(data.reverse());
@@ -36,6 +37,8 @@ function Homepage(props) {
 						createdAt={post.createdAt}
 						id={post._id}
 						getPosts={getPosts}
+						//
+						votes={post.votes}
 					/>
 				);
 			})}

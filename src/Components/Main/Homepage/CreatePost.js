@@ -23,13 +23,6 @@ function CreatePost(props) {
 				'https://redoit-api.herokuapp.com/api/posts',
 				postState
 			);
-			// const response = await fetch('http://localhost:3111/icecreams', {
-			// 	method: 'POST',
-			// 	body: JSON.stringify(flavor),
-			// 	headers:{
-			// 		'Content-type': 'application/json'
-			// 	}
-			// });
 			console.log(response);
 			if (response.status === 201) {
 				navigate('/');
