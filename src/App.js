@@ -8,6 +8,7 @@ import Homepage from '../src/Components/Main/Homepage';
 import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
 import EditPost from './Components/Main/Homepage/EditPost';
+import CommentsPage from './Components/Main/Homepage/CommentsPage';
 
 import ContentCards from './Components/Main/Homepage/ContentCards';
 
@@ -26,6 +27,7 @@ function App() {
 					<Route path='/signup' element={<SignupPage />} />
 					<Route path='/newpost' element={<CreatePost />} />
 					<Route path='/editpost/:id' element={<EditPost />} />
+					<Route path='/comments/:id' element={<CommentsPage />} />
 				</Routes>
 			</main>
 			<footer style={{ position: 'fixed', bottom: '0' }}>
