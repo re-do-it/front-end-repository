@@ -39,6 +39,11 @@ function CreatePost(props) {
 			console.log(error);
 		}
 	};
+
+	function handleCancel(event) {
+		event.preventDefault();
+		navigate('/');
+	}
 	return (
 		<Form
 			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
@@ -64,8 +69,12 @@ function CreatePost(props) {
 			</Form.Group>
 
 			<div className='bottom-button-container d-flex justify-content-end gap-2'>
-				<button className='btn'>Cancel</button>
-				<button className='btn'>Post</button>
+				<button type='button' className='btn'>
+					Cancel
+				</button>
+				<button type='submit' onClick={handleCancel} className='btn'>
+					Post
+				</button>
 			</div>
 		</Form>
 	);
