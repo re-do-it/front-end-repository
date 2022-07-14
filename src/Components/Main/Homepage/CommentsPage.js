@@ -135,15 +135,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 							<Form
 								className='form d-flex flex-column p-2 gap-2 mt-2 mb-5'
 								onSubmit={handleSubmit}>
-								<Form.Group controlId='title'>
-									<Form.Control
-										className='title-input'
-										type='text'
-										placeholder='Title'
-										value={commentState.title}
-										onChange={handleChange}
-									/>
-								</Form.Group>
 								<Form.Group controlId='body'>
 									<Form.Control
 										className='body-input d-flex justify-content-start'
@@ -171,7 +162,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 								{currentComments.map((comment) => {
 									return (
 										<Comments
-											title={comment.title}
 											body={comment.body}
 											createdAt={comment.createdAt}
 											id={comment._id}
