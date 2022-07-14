@@ -35,6 +35,10 @@ function ContentCards({ title, body, createdAt, id, getPosts }) {
 		} catch (error) {}
 	};
 
+	const handleCommentsClick = async () => {
+		navigate(`/comments/${String(id)}`);
+	}
+
 	const handleEdit = async () => {
 		//GET the post with the given id
 		// try {
@@ -81,7 +85,7 @@ function ContentCards({ title, body, createdAt, id, getPosts }) {
 				<Card.Body className='cardBody'>
 					<Card.Title>{title}</Card.Title>
 					<Card.Text>{body}</Card.Text>
-					<button className='btn d-flex justify-content-start'>comments</button>
+					<button className='btn d-flex justify-content-start' onClick={handleCommentsClick}>comments</button>
 				</Card.Body>
 			</Card>
 		</div>
