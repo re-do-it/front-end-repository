@@ -5,7 +5,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Card, DropdownButton, Dropdown } from 'react-bootstrap';
 import './contentcards.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	BsFillArrowUpSquareFill,
 	BsFillArrowDownSquareFill,
@@ -58,9 +57,8 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 				{...commentState,  postId: params.id}
 			);
 			console.log(response);
-			if (response.status === 201) {
-				navigate('/');
-				console.log(response);
+			if (response.status === 200) {
+				getPost();
 			}
 		} catch (error) {
 			console.log(error);
@@ -165,6 +163,7 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 											body={comment.body}
 											createdAt={comment.createdAt}
 											id={comment._id}
+                                            getPost={getPost}
 										/>
 									);
 								})}
