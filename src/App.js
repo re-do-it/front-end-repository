@@ -7,6 +7,7 @@ import Footer from '../src/Components/Footer';
 import Homepage from '../src/Components/Main/Homepage';
 import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
+import EditPost from './Components/Main/Homepage/EditPost';
 
 import ContentCards from './Components/Main/Homepage/ContentCards';
 
@@ -17,15 +18,14 @@ function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
 	return (
 		<>
-			<header>
-				{loggedIn ? <NavbarSignedIn /> : <NavbarSignedOut />}
-			</header>
+			<header>{loggedIn ? <NavbarSignedIn /> : <NavbarSignedOut />}</header>
 			<main>
 				<Routes>
 					<Route path='/' element={<Homepage />} />
 					<Route path='/login' element={<LoginPage />} />
 					<Route path='/signup' element={<SignupPage />} />
 					<Route path='/newpost' element={<CreatePost />} />
+					<Route path='/editpost/:id' element={<EditPost />} />
 				</Routes>
 			</main>
 			<footer style={{ position: 'fixed', bottom: '0' }}>

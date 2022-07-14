@@ -37,16 +37,18 @@ function ContentCards({ title, body, createdAt, id, getPosts }) {
 
 	const handleEdit = async () => {
 		//GET the post with the given id
-		try {
-			const getResp = await axios.get(
-				`https://redoit-api.herokuapp.com/api/posts/${id}`
-			);
-			const getRespData = await getResp.json();
-			console.log(getRespData);
-		} catch (error) {}
+		// try {
+		// 	const getResp = await axios.get(
+		// 		`https://redoit-api.herokuapp.com/api/posts/${id}`
+		// 	);
+		// 	const getRespData = await getResp.json();
+		// 	console.log(getRespData);
+		// } catch (error) {}
 		//allow user to edit in the newpost component
 		//PUT the edited post to the db
-		navigate('/newpost');
+		// let currentPostId = { id };
+		// sessionStorage.setItem('currentPostId', currentPostId);
+		navigate(`/editpost/${String(id)}`);
 	};
 
 	return (
@@ -71,7 +73,7 @@ function ContentCards({ title, body, createdAt, id, getPosts }) {
 						<Dropdown.Item onClick={handleDelete} href='#/action-1'>
 							Delete post
 						</Dropdown.Item>
-						<Dropdown.Item onClick={handleEdit} href='#/action-2'>
+						<Dropdown.Item onClick={handleEdit} value={id} href='#/action-2'>
 							Edit Post
 						</Dropdown.Item>
 					</DropdownButton>
