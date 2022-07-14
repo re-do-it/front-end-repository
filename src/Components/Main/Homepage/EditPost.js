@@ -10,7 +10,7 @@ function EditPost() {
 	const params = useParams();
 
 	const [currentPost, setCurrentPost] = useState([]);
-	const [postState, setPostState] = useState(currentPost);
+	// const [postState, setPostState] = useState(currentPost);
 
 	//fetch all the posts
 	const getPost = async () => {
@@ -31,14 +31,14 @@ function EditPost() {
 	}, []);
 
 	function handleChange(event) {
-		setPostState({ ...postState, [event.target.id]: event.target.value });
+		setCurrentPost({ ...currentPost, [event.target.id]: event.target.value });
 	}
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		try {
 			const response = await axios.put(
 				`https://redoit-api.herokuapp.com/api/posts/${String(params.id)}`,
-				postState
+				currentPost
 			);
 			console.log(response);
 			if (response.status === 200) {
@@ -59,8 +59,8 @@ function EditPost() {
 					className='title-input'
 					type='text'
 					// placeholder='Title'
-					placeholder={currentPost.title}
-					value={postState.title}
+					// placeholder={currentPost.title}
+					value={currentPost.title}
 					onChange={handleChange}
 				/>
 			</Form.Group>
@@ -70,9 +70,9 @@ function EditPost() {
 					className='body-input d-flex justify-content-start'
 					type='text'
 					// placeholder='Your Text'
-					placeholder={currentPost.body}
+					// placeholder={currentPost.body}
 					onChange={handleChange}
-					value={postState.body}
+					value={currentPost.body}
 				/>
 			</Form.Group>
 
