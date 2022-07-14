@@ -36,7 +36,6 @@ function Comments({ title, body, createdAt, id, getPosts }) {
 			</DropdownButton>
 		</Card.Header>
 		<Card.Body className='cardBody'>
-			<Card.Title>{title}</Card.Title>
 			<Card.Text>{body}</Card.Text>
 		</Card.Body>
 	</Card>
