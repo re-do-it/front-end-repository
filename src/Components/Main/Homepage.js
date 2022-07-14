@@ -28,21 +28,26 @@ function Homepage(props) {
 
 	return (
 		<div className='mt-2 d-flex flex-column gap-2'>
-				<FilterPosts />
-				<input
-					type='text'
-					placeholder="testing"
-					onChange={(event) => {
-						setSearchBar(event.target.value)
-					}}
-				/>
-				{currentPosts.filter((post) => {
-					if (searchBar == ""){
-						return post
-					}else if(post.title.toLowerCase().includes(searchBar.toLowerCase())){
-					return post	
+			<FilterPosts />
+
+			<input
+			type='text'
+			placeholder="testing"
+			onChange={(event) => {
+				setSearchBar(event.target.value)
+			}}
+			/>
+			{currentPosts
+				.filter((post) => {
+					if (searchBar == '') {
+						return post;
+					} else if (
+						post.title.toLowerCase().includes(searchBar.toLowerCase())
+					) {
+						return post;
 					}
-				}).map((post) => {
+				})
+				.map((post) => {
 					return (
 						<ContentCards
 							title={post.title}
@@ -54,8 +59,7 @@ function Homepage(props) {
 						/>
 					);
 				})}
-			</div>
-		
+		</div>
 	);
 }
 
