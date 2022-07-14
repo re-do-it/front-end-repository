@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Card, DropdownButton, Dropdown } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './contentcards.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
 	BsFillArrowUpSquareFill,
 	BsFillArrowDownSquareFill,
@@ -10,19 +10,65 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-function ContentCards({ title, body, createdAt, id, getPosts }) {
-	// const { id } = useParams();
+function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 	const navigate = useNavigate();
 
-	const [vote, setVote] = useState(0);
+	const [currentVote, setCurrentVote] = useState(0);
+	const [currentPost, setCurrentPost] = useState({
+		title: title,
+		body: body,
+		votes: votes,
+	});
+
 	let incrementVote = () => {
-		setVote(vote + 1);
+		setCurrentVote(currentVote + 1);
+		setCurrentPost({ ...currentPost, votes: currentVote });
 	};
-
 	let decrementVote = () => {
-		setVote(vote - 1);
+		setCurrentVote(currentVote - 1);
+		setCurrentPost({ ...currentPost, votes: currentVote });
 	};
+	console.log(currentVote);
+	const handleChange = async (event) => {
+		try {
+			const response = await axios.put(
+				`https://redoit-api.herokuapp.com/api/posts/${String(id)}`,
+				currentPost
+			);
+			console.log(response);
 
+			if (response.status === 200) {
+				getPosts();
+				navigate('/');
+				console.log(response);
+			}
+		} catch (error) {
+			console.log(error);
+			console.log(currentPost);
+		}
+	};
+	useEffect(() => {
+		handleChange();
+	}, [currentVote]);
+	// function handleChange(event) {
+	// 	setVote({ ...vote, [event.target.id]: event.target.value });
+	// }
+	// const handleSubmit = async (event) => {
+	// 	event.preventDefault();
+	// 	try {
+	// 		const response = await axios.post(
+	// 			'http://localhost:8000/api/posts',
+	// 			vote
+	// 		);
+	// 		console.log(response);
+	// 		if (response.status === 201) {
+	// 			navigate('/');
+	// 			console.log(response);
+	// 		}
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 	const handleDelete = async () => {
 		try {
 			const response = await axios.delete(
@@ -63,7 +109,7 @@ function ContentCards({ title, body, createdAt, id, getPosts }) {
 						<button onClick={incrementVote}>
 							<BsFillArrowUpSquareFill className='arrow' />
 						</button>
-						<span className='m-3'>{vote}</span>
+						<span className='m-3'>{votes}</span>
 						<button onClick={decrementVote}>
 							<BsFillArrowDownSquareFill className='arrow m-2' />
 						</button>
