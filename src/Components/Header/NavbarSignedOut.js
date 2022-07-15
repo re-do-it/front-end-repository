@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const NavbarSignedOut = ({ setInputQuery }) => {
+function NavbarSignedOut({ setInputQuery }){
 
 
 	let navigate = useNavigate();
@@ -23,12 +23,7 @@ const NavbarSignedOut = ({ setInputQuery }) => {
 		console.log('clicked');
 	}
 
-
-	// function that will work with the search
-	function handleSubmit() {
-		console.log('click from handleSubmit');
-	}
-
+// function for change in input
 	function handleChange(event) {
 		setFormState({ ...formState, input: event.target.value });
 		setInputQuery(event.target.value);
@@ -62,7 +57,6 @@ const NavbarSignedOut = ({ setInputQuery }) => {
 				</Navbar.Brand>
 				<Form>
 					<Form.Control
-						onSubmit={handleSubmit}
 						className='input search-bar'
 						type='text'
 						placeholder='Search Redo-it'

@@ -23,7 +23,11 @@ function App() {
 		<>
 			<header>
 				{loggedIn ? (
-					<NavbarSignedIn />
+					<NavbarSignedIn
+						setInputQuery={setInputQuery}
+						inputQuery={inputQuery}
+						setLoggedIn={setLoggedIn}
+					/>
 				) : (
 					<NavbarSignedOut
 						setInputQuery={setInputQuery}
@@ -33,15 +37,8 @@ function App() {
 			</header>
 			<main>
 				<Routes>
-					<Route
-						path='/'
-						element={
-							<Homepage
-								inputQuery={inputQuery}
-							/>
-						}
-					/>
-					<Route path='/login' element={<LoginPage />} />
+					<Route path='/' element={<Homepage inputQuery={inputQuery} />} />
+					<Route path='/login' element={<LoginPage setLoggedIn={setLoggedIn}/>} />
 					<Route path='/signup' element={<SignupPage />} />
 					<Route path='/newpost' element={<CreatePost />} />
 					<Route path='/editpost/:id' element={<EditPost />} />
