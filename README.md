@@ -2,13 +2,15 @@
 
 ## Desscription
 
-[]
+This web application is a social media application that allows users to connect and share their thoughts by making posts, commenting on other’s posts, and up/down voting other’s posts. The motivation behind this project was to connect people and in the future make the platform more tech centric to become a network for people to talk all things tech. We built this app with a separate front and back end, with the front-end hosted on Netlify and the back-end hosted on Heroku. We also used a MERN stack to build this application, with full CRUD functionality for both posts and comments. Users are also able to create accounts with authentication and sign-in/sign-out functionality.
 
 ###### Home Page
 
-###### Sign up Page
+###### Sign In Page
 
 ![img] (./appImgs/SignUp.png)
+
+###### Sign Up Page
 
 ###### Create post Page
 
@@ -24,7 +26,7 @@
 
 ## Installation Instructions
 
-- To visit the site, click [here](https://rad-crumble-ddc9f3.netlify.app/)
+- To visit the site, click [here](https://redoit.netlify.app/)
 - To work on your own version, fork and clone the repository and you are all set!
 
 ## Contribution Guidelines
