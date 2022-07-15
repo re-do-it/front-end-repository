@@ -25,9 +25,8 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 				`https://redoit-api.herokuapp.com/api/posts/${String(params.id)}`
 			);
 			let data = res.data;
-			console.log(data);
 			setCurrentPost(data);
-            setCurrentComments(data.comments.reverse())
+			setCurrentComments(data.comments.reverse());
 		} catch (error) {
 			console.log(error);
 		}
@@ -54,41 +53,20 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 		try {
 			const response = await axios.post(
 				'https://redoit-api.herokuapp.com/comments',
-				{...commentState,  postId: params.id}
+				{ ...commentState, postId: params.id }
 			);
 			console.log(response);
 			if (response.status === 200) {
 				getPost();
-                setCommentState(initialCommentState);
+				setCommentState(initialCommentState);
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const [vote, setVote] = useState(0);
-	let incrementVote = () => {
-		setVote(vote + 1);
-	};
-
-	let decrementVote = () => {
-		setVote(vote - 1);
-	};
-
-	const handleDelete = async () => {
-		try {
-			const response = await axios.delete(
-				`https://redoit-api.herokuapp.com/api/posts/${String(id)}`
-			);
-			if (response.status === 204) {
-				getPosts();
-				navigate('/');
-			}
-		} catch (error) {}
-	};
-
 	const handleEdit = async () => {
-		navigate(`/editpost/${String(id)}`);
+		navigate(`/editpost/${String(params.id)}`);
 	};
 
 	return (
@@ -96,15 +74,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 			<div className='cards'>
 				<Card className='form mt-3'>
 					<Card.Header className='header'>
-						<div className='d-flex flex-row'>
-							<button onClick={incrementVote}>
-								<BsFillArrowUpSquareFill className='arrow' />
-							</button>
-							<span className='m-3'>{vote}</span>
-							<button onClick={decrementVote}>
-								<BsFillArrowDownSquareFill className='arrow m-2' />
-							</button>
-						</div>
 						<div className='d-flex flex-column justify-content-start align-items-start'>
 							<span>Posted at: {currentPost.createdAt}</span>
 						</div>
@@ -112,9 +81,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 							className='drop-down'
 							id='dropdown-basic-button'
 							title=''>
-							<Dropdown.Item onClick={handleDelete} href='#/action-1'>
-								Delete post
-							</Dropdown.Item>
 							<Dropdown.Item onClick={handleEdit} value={id} href='#/action-2'>
 								Edit Post
 							</Dropdown.Item>
@@ -163,7 +129,7 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 											body={comment.body}
 											createdAt={comment.createdAt}
 											id={comment._id}
-                                            getPost={getPost}
+											getPost={getPost}
 										/>
 									);
 								})}
