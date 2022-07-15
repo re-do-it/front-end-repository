@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function NavbarSignedOut({ setInputQuery }){
@@ -48,10 +48,11 @@ function NavbarSignedOut({ setInputQuery }){
 	
 
 	return (
-		<Navbar className='form container-fluid'>
-			<Container className=''>
+		<Navbar className='form fluid-container navbar'>
+			<Container className='d-flex align-items-center justify-content-space-between'>
 				<Navbar.Brand className='d-flex align-items-center'>
-					<img src='asdfasdfasdf' alt='logo' onClick={logoButton} />
+					<img className='logo' src={require('../../images/saturn.png')} alt='saturn-logo' 
+					onClick={logoButton} />
 				</Navbar.Brand>
 				<Form>
 					<Form.Control
