@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,18 +6,37 @@ import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 
-function NavbarSignedIn(props) {
+function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
 	let navigate = useNavigate();
+	const initialFormState = {
+		input: '',
+	};
+	const [formState, setFormState] = useState(initialFormState);
 
 	// function for the logo button to redirect to the home
 	function logoButton(event) {
 		event.preventDefault();
 		navigate('/');
 	}
+	function myProfile(event) {
+		event.preventDefault();
+		navigate('/myprofile')
+	}
 
 	// function that will work with the search
-	function handleSubmit() {
-		console.log('click from handleSubmit');
+	function handleChange(event) {
+		setFormState({ ...formState, input: event.target.value });
+		setInputQuery(event.target.value);
+	}
+	function logInState(event) {
+		event.preventDefault();
+		setLoggedIn(false);
+		navigate('/');
+	}
+	//function for new post
+	function handleNewPost(event) {
+		event.preventDefault();
+		navigate('/newpost');
 	}
 
 	return (
@@ -29,9 +48,11 @@ function NavbarSignedIn(props) {
 					</Navbar.Brand>
 					<Form>
 						<Form.Control
-							className='input'
+							className='input search-bar'
 							type='text'
 							placeholder='Search Redo-it'
+							onChange={handleChange}
+							value={formState.input}
 						/>
 					</Form>
 					<Nav className='me-auto'>
@@ -40,14 +61,16 @@ function NavbarSignedIn(props) {
 								<Dropdown.Toggle className='btn'>User</Dropdown.Toggle>
 
 								<Dropdown.Menu>
-									<Dropdown.Item href='#/signout'>Sign out</Dropdown.Item>
-									<Dropdown.Item href='#/profile'>My profile</Dropdown.Item>
+									<Dropdown.Item onClick={myProfile}>My profile</Dropdown.Item>
+									<Dropdown.Item onClick={logInState}>Sign out</Dropdown.Item>
 								</Dropdown.Menu>
 							</Dropdown>
 						</Nav.Link>
 					</Nav>
 
-					<Nav.Link className='d-flex align-items-center justify-content-center'>
+					<Nav.Link
+						className='d-flex align-items-center justify-content-center'
+						onClick={handleNewPost}>
 						<button className='btn' type='submit'>
 							Create a Post
 						</button>
