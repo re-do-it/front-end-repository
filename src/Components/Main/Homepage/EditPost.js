@@ -19,7 +19,6 @@ function EditPost() {
 				`https://redoit-api.herokuapp.com/api/posts/${String(params.id)}`
 			);
 			let data = res.data;
-			console.log(data);
 			setCurrentPost(data);
 		} catch (error) {
 			console.log(error);
@@ -43,7 +42,6 @@ function EditPost() {
 			console.log(response);
 			if (response.status === 200) {
 				navigate('/');
-				console.log(response);
 			}
 		} catch (error) {
 			console.log(error);

@@ -23,10 +23,8 @@ function CreatePost(props) {
 				'https://redoit-api.herokuapp.com/api/posts',
 				postState
 			);
-			console.log(response);
 			if (response.status === 201) {
 				navigate('/');
-				console.log(response);
 			}
 		} catch (error) {
 			console.log(error);

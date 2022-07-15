@@ -5,9 +5,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function NavbarSignedOut({ setInputQuery }){
-
-
+function NavbarSignedOut({ setInputQuery }) {
 	let navigate = useNavigate();
 	const initialFormState = {
 		input: '',
@@ -18,15 +16,13 @@ function NavbarSignedOut({ setInputQuery }){
 	function logoButton(event) {
 		event.preventDefault();
 		navigate('/');
-		console.log('clicked');
 	}
 
-// function for change in input
+	// function for change in input
 	function handleChange(event) {
 		setFormState({ ...formState, input: event.target.value });
 		setInputQuery(event.target.value);
 	}
-		
 
 	// function for the login
 	function handleLogIn(event) {
@@ -45,15 +41,18 @@ function NavbarSignedOut({ setInputQuery }){
 		event.preventDefault();
 		navigate('/newpost');
 	}
-	
 
 	return (
 		<Navbar className='form fluid-container navbar'>
 			<Container className='fluid-container'>
 				<Navbar.Brand className='d-flex align-items-center'>
 					<div className='logo-container'>
-						<img className='logo' src={require('../../images/saturn.png')} alt='saturn-logo'
-						onClick={logoButton} />
+						<img
+							className='logo'
+							src={require('../../images/saturn.png')}
+							alt='saturn-logo'
+							onClick={logoButton}
+						/>
 					</div>
 				</Navbar.Brand>
 				<Form>

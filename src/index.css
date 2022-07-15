@@ -144,6 +144,10 @@ footer {
     height: 1.5rem;
 }
 
+.logo-container:hover {
+    cursor: pointer;
+}
+
 nav .btn {
     height: auto;
     width: auto;
