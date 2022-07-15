@@ -13,7 +13,7 @@ import axios from 'axios';
 function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 	const navigate = useNavigate();
 
-	const [currentVote, setCurrentVote] = useState(0);
+	const [currentVote, setCurrentVote] = useState(votes);
 	const [currentPost, setCurrentPost] = useState({
 		title: title,
 		body: body,
@@ -61,7 +61,7 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 
 	const handleCommentsClick = async () => {
 		navigate(`/comments/${String(id)}`);
-	}
+	};
 
 	const handleEdit = async () => {
 		navigate(`/editpost/${String(id)}`);
