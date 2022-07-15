@@ -19,6 +19,11 @@ function SignupPage(props) {
 	function handleChange(event) {
 		setFormState({ ...formState, [event.target.id]: event.target.value });
 	}
+	
+	function handleLogIn(event) {
+		event.preventDefault();
+		navigate('/login')
+	}
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -82,11 +87,11 @@ function SignupPage(props) {
 
 				<div className='button-box'>
 					<div className='d-grid mb-5 signup button '>
-						<button className='btn' type='button'>
+						<button className='btn' type='button' onClick={handleLogIn}>
 							<p className='signup-text'>Already have an account?</p>
-							<a href='' className='signup-text'>
+							<p>
 								Log in!
-							</a>
+							</p>
 						</button>
 					</div>
 					<div className='d-grid mb-5 signin button'>
