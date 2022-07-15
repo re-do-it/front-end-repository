@@ -8,9 +8,11 @@ import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
 import EditPost from './Components/Main/Homepage/EditPost';
 import CommentsPage from './Components/Main/Homepage/CommentsPage';
+<<<<<<< HEAD
 import ContentCards from './Components/Main/Homepage/ContentCards';
+=======
+>>>>>>> add functionality to filterbar
 import CreatePost from './Components/Main/Homepage/CreatePost';
-import FilterPosts from './Components/Main/Homepage/FilterPosts';
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
