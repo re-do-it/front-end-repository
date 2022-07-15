@@ -2,13 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import './SignupPage.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function SignupPage(props) {
+	const navigate = useNavigate();
 	const initialFormState = {
 		name: '',
-		username: '',
+		email: '',
 		password: '',
 	};
 
@@ -18,12 +20,23 @@ function SignupPage(props) {
 		setFormState({ ...formState, [event.target.id]: event.target.value });
 	}
 
-	function handleSubmit(event) {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		console.log('you clicked me');
-		console.log(formState);
-		// setFormState(initialFormState);
-	}
+		// Write your POST fetch() or axios() request here
+		try {
+			const response = await axios.post(
+				'https://redoit-api.herokuapp.com/api/users/signup',
+				formState
+			);
+
+			console.log(response);
+			if (response.status === 201) {
+				navigate('/');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<Container
@@ -32,7 +45,7 @@ function SignupPage(props) {
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
-				className='text-center w-100 form'
+				className='text-center w-100 form mt-5'
 				style={{
 					padding: '1em 3em',
 				}}>
@@ -48,14 +61,14 @@ function SignupPage(props) {
 						onChange={handleChange}
 					/>
 				</Form.Group>
-				<Form.Group controlId='username'>
+				<Form.Group controlId='email'>
 					<Form.Control
 						type='email'
 						size='lg'
 						placeholder='Email address'
-						autoComplete='username'
+						// autoComplete='username'
 						className='position-relative mb-1 input'
-						value={formState.username}
+						value={formState.email}
 						onChange={handleChange}
 					/>
 				</Form.Group>
@@ -82,7 +95,7 @@ function SignupPage(props) {
 					</div>
 					<div className='d-grid mb-5 signin button'>
 						<button className='btn' type='submit'>
-							Sign In
+							Sign Up
 						</button>
 					</div>
 				</div>

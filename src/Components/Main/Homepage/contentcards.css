@@ -1,7 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+
 .arrows {
     display: flex;
     flex-direction: column;
@@ -17,7 +14,7 @@
     
 }
 .card {
-    width: 80vw;
+    width: 100%;
 }
 
 .cards {
@@ -25,16 +22,13 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-
 }
 
 .header {
     display: flex;
     justify-content: space-between;
 }
-.cardBody{
-    
-}
+
 .commentButton{
    float: right;
     background-color: gray;

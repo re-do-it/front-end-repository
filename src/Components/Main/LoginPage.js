@@ -4,10 +4,13 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './LoginPage.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function LoginPage(props) {
+function LoginPage( {setLoggedIn} ) {
+	let navigate = useNavigate();
 	const initialFormState = {
-		username: '',
+		email: '',
 		password: '',
 	};
 
@@ -20,29 +23,46 @@ function LoginPage(props) {
 	function handleSubmit(event) {
 		event.preventDefault();
 		console.log('you clicked me');
-		console.log(formState);
 		// setFormState(initialFormState);
 	}
+	const handleLogIn = async (event) => {
+		event.preventDefault();
+		try {
+			const response = await axios.post(
+				'https://redoit-api.herokuapp.com/api/users/login',
+				formState
+			);
+			console.log(response);
+			if (response.status === 200) {
+				setLoggedIn(true)
+				navigate('/');
+				console.log(response);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+		console.log(formState);
 
 	return (
 		<Container style={{ height: '6em', width: '30em', display: 'grid' }}>
 			<Form
-				onSubmit={handleSubmit}
+				onSubmit={handleLogIn}
 				id='sign-in-form'
-				className='text-center w-100 form'
+				className='text-center w-100 form mt-5'
 				style={{
 					padding: '1em 3em',
 				}}>
-				<h1 className='mb-5 fs-3 fw-normal'>Please Sign in</h1>
+				<h1 className='mb-5 fs-3 fw-normal'>Please Log In</h1>
 
-				<Form.Group controlId='username'>
+				<Form.Group controlId='email'>
 					<Form.Control
 						type='email'
 						size='lg'
 						placeholder='Email address'
-						autoComplete='username'
+						// autoComplete='username'
 						className='position-relative mb-1 input'
-						value={formState.username}
+						value={formState.email}
 						onChange={handleChange}
 					/>
 				</Form.Group>
@@ -80,6 +100,7 @@ function LoginPage(props) {
 
 				{/* <p className='text-muted'>&copy; 2021-2022</p> */}
 			</Form>
+			
 		</Container>
 	);
 }

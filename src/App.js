@@ -7,6 +7,8 @@ import Footer from '../src/Components/Footer';
 import Homepage from '../src/Components/Main/Homepage';
 import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
+import EditPost from './Components/Main/Homepage/EditPost';
+import CommentsPage from './Components/Main/Homepage/CommentsPage';
 
 import ContentCards from './Components/Main/Homepage/ContentCards';
 
@@ -15,18 +17,32 @@ import FilterPosts from './Components/Main/Homepage/FilterPosts';
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
+	const [inputQuery, setInputQuery] = useState('');
+
 	return (
 		<>
 			<header>
-				{loggedIn ? <NavbarSignedIn /> : <NavbarSignedOut />}
-				<FilterPosts />
+				{loggedIn ? (
+					<NavbarSignedIn
+						setInputQuery={setInputQuery}
+						inputQuery={inputQuery}
+						setLoggedIn={setLoggedIn}
+					/>
+				) : (
+					<NavbarSignedOut
+						setInputQuery={setInputQuery}
+						inputQuery={inputQuery}
+					/>
+				)}
 			</header>
 			<main>
 				<Routes>
-					<Route path='/' element={<Homepage />} />
-					<Route path='/login' element={<LoginPage />} />
+					<Route path='/' element={<Homepage inputQuery={inputQuery} />} />
+					<Route path='/login' element={<LoginPage setLoggedIn={setLoggedIn}/>} />
 					<Route path='/signup' element={<SignupPage />} />
 					<Route path='/newpost' element={<CreatePost />} />
+					<Route path='/editpost/:id' element={<EditPost />} />
+					<Route path='/comments/:id' element={<CommentsPage />} />
 				</Routes>
 			</main>
 			<footer style={{ position: 'fixed', bottom: '0' }}>
