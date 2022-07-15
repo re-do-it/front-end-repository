@@ -2,12 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import './LoginPage.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function LoginPage( {setLoggedIn} ) {
+function LoginPage({ setLoggedIn }) {
 	let navigate = useNavigate();
 	const initialFormState = {
 		email: '',
@@ -32,24 +31,21 @@ function LoginPage( {setLoggedIn} ) {
 				'https://redoit-api.herokuapp.com/api/users/login',
 				formState
 			);
-			console.log(response);
 			if (response.status === 200) {
-				setLoggedIn(true)
+				setLoggedIn(true);
 				navigate('/');
-				console.log(response);
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
-		console.log(formState);
 
 	return (
-		<Container style={{ height: '6em', width: '30em', display: 'grid' }}>
+		<Container className='login-form-container'>
 			<Form
 				onSubmit={handleLogIn}
 				id='sign-in-form'
-				className='text-center w-100 form mt-5'
+				className='text-center form mt-5 login-form'
 				style={{
 					padding: '1em 3em',
 				}}>
@@ -60,7 +56,6 @@ function LoginPage( {setLoggedIn} ) {
 						type='email'
 						size='lg'
 						placeholder='Email address'
-						// autoComplete='username'
 						className='position-relative mb-1 input'
 						value={formState.email}
 						onChange={handleChange}
@@ -97,10 +92,7 @@ function LoginPage( {setLoggedIn} ) {
 						</button>
 					</div>
 				</div>
-
-				{/* <p className='text-muted'>&copy; 2021-2022</p> */}
 			</Form>
-			
 		</Container>
 	);
 }

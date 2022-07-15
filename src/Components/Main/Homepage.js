@@ -78,6 +78,7 @@ function Homepage(props) {
 								id={post._id}
 								getPosts={getPosts}
 								votes={post.votes}
+								key={post._id}
 							/>
 						);
 					})}

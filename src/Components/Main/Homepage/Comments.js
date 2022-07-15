@@ -1,7 +1,6 @@
 import { Button, Card, DropdownButton, Dropdown } from 'react-bootstrap';
-import { useState } from 'react';
 import './contentcards.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Comments({ title, body, createdAt, id, getPost }) {

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import NavbarSignedIn from '../src/Components/Header/NavbarSignedIn';
 import NavbarSignedOut from '../src/Components/Header/NavbarSignedOut';
@@ -8,7 +8,6 @@ import LoginPage from './Components/Main/LoginPage';
 import SignupPage from './Components/Main/SignupPage';
 import EditPost from './Components/Main/Homepage/EditPost';
 import CommentsPage from './Components/Main/Homepage/CommentsPage';
-import ContentCards from './Components/Main/Homepage/ContentCards';
 import CreatePost from './Components/Main/Homepage/CreatePost';
 
 function App() {
