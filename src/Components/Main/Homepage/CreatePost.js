@@ -62,10 +62,10 @@ function CreatePost(props) {
 			</Form.Group>
 
 			<div className='bottom-button-container d-flex justify-content-end gap-2'>
-				<button type='button' className='btn'>
+				<button type='button' onClick={handleCancel} className='btn'>
 					Cancel
 				</button>
-				<button type='submit' onClick={handleCancel} className='btn'>
+				<button type='submit' className='btn'>
 					Post
 				</button>
 			</div>
