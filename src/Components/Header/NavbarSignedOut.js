@@ -1,5 +1,3 @@
-import './NavBarSignedOut.css'
-import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -50,8 +48,8 @@ function NavbarSignedOut({ setInputQuery }){
 	
 
 	return (
-		<Navbar className='form fluid-container navbar'>
-			<Container className='d-flex align-items-center justify-content-space-between'>
+		<Navbar className='form container-fluid'>
+			<Container className=''>
 				<Navbar.Brand className='d-flex align-items-center'>
 					<img src='asdfasdfasdf' alt='logo' onClick={logoButton} />
 				</Navbar.Brand>
@@ -90,9 +88,7 @@ function NavbarSignedOut({ setInputQuery }){
 					</Nav.Link>
 				</Nav>
 			</Container>
-		
 		</Navbar>
-
 	);
 }
 
