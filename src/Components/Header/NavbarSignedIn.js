@@ -7,6 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 
 function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
+
 	let navigate = useNavigate();
 	const initialFormState = {
 		input: '',
@@ -44,7 +45,12 @@ function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
 			<Navbar className='form'>
 				<Container>
 					<Navbar.Brand>
-						<img src='asdfasdf' alt='my image' onClick={logoButton} />
+						<img
+							className='logo'
+							src={require('../../images/saturn.png')}
+							alt='saturn-logo'
+							onClick={logoButton}
+						/>
 					</Navbar.Brand>
 					<Form>
 						<Form.Control
