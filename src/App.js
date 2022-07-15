@@ -45,7 +45,7 @@ function App() {
 					<Route path='/comments/:id' element={<CommentsPage />} />
 				</Routes>
 			</main>
-			<footer style={{ position: 'fixed', bottom: '0' }}>
+			<footer>
 				<Footer />
 			</footer>
 		</>
