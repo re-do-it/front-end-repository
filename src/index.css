@@ -118,3 +118,19 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+@media (min-width: 800px) {
+    .search-bar {
+        width: 25rem
+    }
+}
+
+@media (min-width: 1200px) {
+    .search-bar {
+        width: 35rem
+    }
+}
+
+.navbar {
+    width: 100%;
+}
