@@ -19,11 +19,11 @@ function LoginPage({ setLoggedIn }) {
 		setFormState({ ...formState, [event.target.id]: event.target.value });
 	}
 
-	function handleSubmit(event) {
+	function handleSignUp(event) {
 		event.preventDefault();
-		console.log('you clicked me');
-		// setFormState(initialFormState);
+		navigate('/signup')
 	}
+
 	const handleLogIn = async (event) => {
 		event.preventDefault();
 		try {
@@ -79,11 +79,11 @@ function LoginPage({ setLoggedIn }) {
 				</Form.Group>
 				<div className='button-box'>
 					<div className='d-grid mb-5 signup button'>
-						<button className='btn' type='button'>
+						<button className='btn' type='button' onClick={handleSignUp}>
 							<p className='signup-text'>Don't have an account?</p>
-							<a href='' className='signup-text'>
+							<p>
 								Sign up!
-							</a>
+							</p>
 						</button>
 					</div>
 					<div className='d-grid mb-5 signin button'>
