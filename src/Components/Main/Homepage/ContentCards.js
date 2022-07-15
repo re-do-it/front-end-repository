@@ -28,23 +28,19 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 		setCurrentVote(currentVote - 1);
 		setCurrentPost({ ...currentPost, votes: currentVote });
 	};
-	console.log(currentVote);
 	const handleChange = async (event) => {
 		try {
 			const response = await axios.put(
 				`https://redoit-api.herokuapp.com/api/posts/${String(id)}`,
 				currentPost
 			);
-			console.log(response);
 
 			if (response.status === 200) {
 				getPosts();
 				navigate('/');
-				console.log(response);
 			}
 		} catch (error) {
 			console.log(error);
-			console.log(currentPost);
 		}
 	};
 	useEffect(() => {

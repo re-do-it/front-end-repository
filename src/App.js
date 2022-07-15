@@ -17,12 +17,30 @@ import FilterPosts from './Components/Main/Homepage/FilterPosts';
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
+	const [inputQuery, setInputQuery] = useState('');
+
 	return (
 		<>
-			<header>{loggedIn ? <NavbarSignedIn /> : <NavbarSignedOut />}</header>
+			<header>
+				{loggedIn ? (
+					<NavbarSignedIn />
+				) : (
+					<NavbarSignedOut
+						setInputQuery={setInputQuery}
+						inputQuery={inputQuery}
+					/>
+				)}
+			</header>
 			<main>
 				<Routes>
-					<Route path='/' element={<Homepage />} />
+					<Route
+						path='/'
+						element={
+							<Homepage
+								inputQuery={inputQuery}
+							/>
+						}
+					/>
 					<Route path='/login' element={<LoginPage />} />
 					<Route path='/signup' element={<SignupPage />} />
 					<Route path='/newpost' element={<CreatePost />} />

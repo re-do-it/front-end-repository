@@ -1,34 +1,38 @@
 import './NavBarSignedOut.css'
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Homepage from '../Main/Homepage';
 
-function NavbarSignedOut(props) {
+const NavbarSignedOut = ({ setInputQuery }) => {
+
+
 	let navigate = useNavigate();
-const initialFormState = {
-	input: '',
-};
-const [formState, setFormState] = useState(initialFormState);
+	const initialFormState = {
+		input: '',
+	};
+	const [formState, setFormState] = useState(initialFormState);
+
 	// function for the logo button to redirect to the home
 	function logoButton(event) {
 		event.preventDefault();
 		navigate('/');
 		console.log('clicked');
 	}
-	
 
 
 	// function that will work with the search
 	function handleSubmit() {
 		console.log('click from handleSubmit');
 	}
-		function handleChange(event) {
-			setFormState({ ...formState, input: event.target.value });
-		}
+
+	function handleChange(event) {
+		setFormState({ ...formState, input: event.target.value });
+		setInputQuery(event.target.value);
+	}
 		
 
 	// function for the login
@@ -92,8 +96,9 @@ const [formState, setFormState] = useState(initialFormState);
 					</Nav.Link>
 				</Nav>
 			</Container>
-			{/* <Homepage value={formState}/> */}
+		
 		</Navbar>
+
 	);
 }
 
