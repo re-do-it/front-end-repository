@@ -7,7 +7,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
 
 function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
-
 	let navigate = useNavigate();
 	const initialFormState = {
 		input: '',
@@ -21,7 +20,7 @@ function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
 	}
 	function myProfile(event) {
 		event.preventDefault();
-		navigate('/myprofile')
+		navigate('/myprofile');
 	}
 
 	// function that will work with the search

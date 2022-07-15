@@ -1,10 +1,16 @@
+.create-post-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
 .create-post {
-    height: 55vh;
     max-height: 370px;
-    width: 100%vw;
+    width: 100%;
     background-color: rgb(26, 26, 26);
     border: solid rgb(52, 52, 52);
     border-radius: 1rem;
+    max-width: 775px;
 }
 
 .title-input {

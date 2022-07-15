@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Card, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import './contentcards.css';
-
 import {
 	BsFillArrowUpSquareFill,
 	BsFillArrowDownSquareFill,

@@ -5,14 +5,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Card, DropdownButton, Dropdown } from 'react-bootstrap';
 import './contentcards.css';
-import {
-	BsFillArrowUpSquareFill,
-	BsFillArrowDownSquareFill,
-} from 'react-icons/bs';
 import Form from 'react-bootstrap/Form';
 import Comments from './Comments';
 
-function CommentsPage({ title, body, createdAt, id, getPosts }) {
+function CommentsPage({ id }) {
 	const navigate = useNavigate();
 	const params = useParams();
 
@@ -55,7 +51,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 				'https://redoit-api.herokuapp.com/comments',
 				{ ...commentState, postId: params.id }
 			);
-			console.log(response);
 			if (response.status === 200) {
 				getPost();
 				setCommentState(initialCommentState);
@@ -109,13 +104,6 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 									/>
 								</Form.Group>
 
-								{/* <Form.Group
-									controlId='postId'
-									value={}
-									type='text'
-									onChange={handleChange}
-									></Form.Group> */}
-
 								<div className='d-flex justify-content-end'>
 									<button className='btn'>Comment</button>
 								</div>
@@ -130,6 +118,7 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 											createdAt={comment.createdAt}
 											id={comment._id}
 											getPost={getPost}
+											key={comment._id}
 										/>
 									);
 								})}

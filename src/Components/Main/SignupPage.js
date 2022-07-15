@@ -28,8 +28,6 @@ function SignupPage(props) {
 				'https://redoit-api.herokuapp.com/api/users/signup',
 				formState
 			);
-
-			console.log(response);
 			if (response.status === 201) {
 				navigate('/');
 			}
@@ -41,7 +39,7 @@ function SignupPage(props) {
 	return (
 		<Container
 			id='main-container'
-			style={{ height: '6em', width: '30em', display: 'grid' }}>
+			className='signup-form-container'>
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'
@@ -55,7 +53,6 @@ function SignupPage(props) {
 						type='text'
 						size='lg'
 						placeholder='Your Name'
-						// autoComplete='username'
 						className='position-relative mb-1 input'
 						value={formState.name}
 						onChange={handleChange}
@@ -66,7 +63,6 @@ function SignupPage(props) {
 						type='email'
 						size='lg'
 						placeholder='Email address'
-						// autoComplete='username'
 						className='position-relative mb-1 input'
 						value={formState.email}
 						onChange={handleChange}
@@ -99,8 +95,6 @@ function SignupPage(props) {
 						</button>
 					</div>
 				</div>
-
-				{/* <p className='text-muted'>&copy; 2021-2022</p> */}
 			</Form>
 		</Container>
 	);
