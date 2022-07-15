@@ -44,12 +44,14 @@ function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
 			<Navbar className='form'>
 				<Container>
 					<Navbar.Brand>
+						<div className='logo-container'>
 						<img
 							className='logo'
 							src={require('../../images/saturn.png')}
 							alt='saturn-logo'
 							onClick={logoButton}
 						/>
+						</div>
 					</Navbar.Brand>
 					<Form>
 						<Form.Control
@@ -66,7 +68,6 @@ function NavbarSignedIn({ setInputQuery, setLoggedIn }) {
 								<Dropdown.Toggle className='btn'>User</Dropdown.Toggle>
 
 								<Dropdown.Menu>
-									<Dropdown.Item onClick={myProfile}>My profile</Dropdown.Item>
 									<Dropdown.Item onClick={logInState}>Sign out</Dropdown.Item>
 								</Dropdown.Menu>
 							</Dropdown>
