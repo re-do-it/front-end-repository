@@ -46,25 +46,7 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 	useEffect(() => {
 		handleChange();
 	}, [currentVote]);
-	// function handleChange(event) {
-	// 	setVote({ ...vote, [event.target.id]: event.target.value });
-	// }
-	// const handleSubmit = async (event) => {
-	// 	event.preventDefault();
-	// 	try {
-	// 		const response = await axios.post(
-	// 			'http://localhost:8000/api/posts',
-	// 			vote
-	// 		);
-	// 		console.log(response);
-	// 		if (response.status === 201) {
-	// 			navigate('/');
-	// 			console.log(response);
-	// 		}
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// };
+
 	const handleDelete = async () => {
 		try {
 			const response = await axios.delete(
@@ -82,18 +64,6 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 	}
 
 	const handleEdit = async () => {
-		//GET the post with the given id
-		// try {
-		// 	const getResp = await axios.get(
-		// 		`https://redoit-api.herokuapp.com/api/posts/${id}`
-		// 	);
-		// 	const getRespData = await getResp.json();
-		// 	console.log(getRespData);
-		// } catch (error) {}
-		//allow user to edit in the newpost component
-		//PUT the edited post to the db
-		// let currentPostId = { id };
-		// sessionStorage.setItem('currentPostId', currentPostId);
 		navigate(`/editpost/${String(id)}`);
 	};
 
@@ -110,8 +80,9 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 							<BsFillArrowDownSquareFill className='arrow m-2' />
 						</button>
 					</div>
-					Posted by: {createdAt}
-					Id: {id}
+					<div className='d-flex flex-column justify-content-start align-items-start'>
+						<span>Posted at: {createdAt}</span>
+					</div>
 					<DropdownButton
 						className='drop-down'
 						id='dropdown-basic-button'
@@ -127,7 +98,11 @@ function ContentCards({ title, body, createdAt, id, votes, getPosts }) {
 				<Card.Body className='cardBody'>
 					<Card.Title>{title}</Card.Title>
 					<Card.Text>{body}</Card.Text>
-					<button className='btn d-flex justify-content-start' onClick={handleCommentsClick}>comments</button>
+					<button
+						className='btn d-flex justify-content-start'
+						onClick={handleCommentsClick}>
+						comments
+					</button>
 				</Card.Body>
 			</Card>
 		</div>

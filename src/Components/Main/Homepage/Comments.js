@@ -23,15 +23,11 @@ function Comments({ title, body, createdAt, id, getPosts }) {
 	<Card className='form mt-3'>
 		<Card.Header className='header'>
 			<div className='d-flex flex-column justify-content-start align-items-start'>
-				<span>Posted by: {createdAt}</span>
-				<span>Id:{id}</span>
+				<span>Posted at: {createdAt}</span>
 			</div>
 			<DropdownButton className='drop-down' id='dropdown-basic-button' title=''>
 				<Dropdown.Item onClick={handleDelete} href='#/action-1'>
 					Delete comment
-				</Dropdown.Item>
-				<Dropdown.Item value={id} href='#/action-2'>
-					Edit comment
 				</Dropdown.Item>
 			</DropdownButton>
 		</Card.Header>

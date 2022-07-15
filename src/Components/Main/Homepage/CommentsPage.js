@@ -106,8 +106,7 @@ function CommentsPage({ title, body, createdAt, id, getPosts }) {
 							</button>
 						</div>
 						<div className='d-flex flex-column justify-content-start align-items-start'>
-							<span>Posted by: {currentPost.createdAt}</span>
-							<span>Id:{currentPost._id}</span>
+							<span>Posted at: {currentPost.createdAt}</span>
 						</div>
 						<DropdownButton
 							className='drop-down'

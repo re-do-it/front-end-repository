@@ -69,10 +69,15 @@ button {
     /* Corrects inability to style clickable inputs in iOS devices */
     -webkit-appearance: none;
 }
-
-@media (min-width: 600px) {
+@media (max-width: 900px) {
     main {
-        padding: 0 200px;
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 900px) {
+    main {
+        padding: 0 100px;
     }
 }
 
@@ -102,4 +107,14 @@ header {
     background-color: inherit;
     border: solid rgb(52, 52, 52);
     border-radius: 1rem;
+}
+
+input:not(:placeholder-shown) {
+    background-color: white;
+}
+
+footer {
+    position: sticky;
+    display: flex;
+    justify-content: center;
 }
