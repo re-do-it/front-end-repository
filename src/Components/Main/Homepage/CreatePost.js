@@ -38,38 +38,38 @@ function CreatePost(props) {
 		navigate('/');
 	}
 	return (
-		<Form
-			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
-			onSubmit={handleSubmit}>
-			<Form.Group controlId='title'>
-				<Form.Control
-					className='title-input'
-					type='text'
-					placeholder='Title'
-					value={postState.title}
-					onChange={handleChange}
-				/>
-			</Form.Group>
-
-			<Form.Group controlId='body'>
-				<Form.Control
-					className='body-input d-flex justify-content-start'
-					type='text'
-					placeholder='Your Text'
-					onChange={handleChange}
-					value={postState.body}
-				/>
-			</Form.Group>
-
-			<div className='bottom-button-container d-flex justify-content-end gap-2'>
-				<button type='button' onClick={handleCancel} className='btn'>
-					Cancel
-				</button>
-				<button type='submit' className='btn'>
-					Post
-				</button>
-			</div>
-		</Form>
+		<div className='d-flex flex-column p-3 gap-3 create-post-container'>
+			<Form
+				className='create-post d-flex flex-column p-3 gap-3 mt-5 justify-content-center'
+				onSubmit={handleSubmit}>
+				<Form.Group controlId='title'>
+					<Form.Control
+						className='title-input'
+						type='text'
+						placeholder='Title'
+						value={postState.title}
+						onChange={handleChange}
+					/>
+				</Form.Group>
+				<Form.Group controlId='body'>
+					<Form.Control
+						className='body-input'
+						type='text'
+						placeholder='Your Text'
+						onChange={handleChange}
+						value={postState.body}
+					/>
+				</Form.Group>
+				<div className='bottom-button-container d-flex justify-content-end gap-2'>
+					<button type='button' onClick={handleCancel} className='btn'>
+						Cancel
+					</button>
+					<button type='submit' className='btn'>
+						Post
+					</button>
+				</div>
+			</Form>
+		</div>
 	);
 }
 

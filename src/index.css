@@ -117,23 +117,44 @@ footer {
     position: sticky;
     display: flex;
     justify-content: center;
+    bottom: 0;
 }
 
 @media (min-width: 800px) {
     .search-bar {
-        width: 25rem
+        width: 20rem
     }
 }
 
 @media (min-width: 1200px) {
     .search-bar {
-        width: 35rem
+        width: 30rem
     }
 }
 
 .navbar {
     width: 100%;
 }
+
 .logo{
-    height: 9vh;
+    height: 100%
+}
+
+.logo-container {
+    height: 1.5rem;
+}
+
+nav .btn {
+    height: auto;
+    width: auto;
+}
+
+@media (min-width: 590px) {
+    .logo-container {
+        height: 3rem;
+    }
+}
+
+main {
+    height: auto;
 }

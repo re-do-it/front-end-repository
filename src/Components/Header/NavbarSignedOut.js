@@ -49,10 +49,12 @@ function NavbarSignedOut({ setInputQuery }){
 
 	return (
 		<Navbar className='form fluid-container navbar'>
-			<Container className='d-flex align-items-center justify-content-space-between'>
+			<Container className='fluid-container'>
 				<Navbar.Brand className='d-flex align-items-center'>
-					<img className='logo' src={require('../../images/saturn.png')} alt='saturn-logo' 
-					onClick={logoButton} />
+					<div className='logo-container'>
+						<img className='logo' src={require('../../images/saturn.png')} alt='saturn-logo'
+						onClick={logoButton} />
+					</div>
 				</Navbar.Brand>
 				<Form>
 					<Form.Control

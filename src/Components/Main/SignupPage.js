@@ -41,7 +41,7 @@ function SignupPage(props) {
 	return (
 		<Container
 			id='main-container'
-			style={{ height: '6em', width: '30em', display: 'grid' }}>
+			className='signup-form-container'>
 			<Form
 				onSubmit={handleSubmit}
 				id='sign-in-form'

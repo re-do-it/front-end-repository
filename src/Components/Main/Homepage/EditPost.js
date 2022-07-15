@@ -50,37 +50,46 @@ function EditPost() {
 		}
 	};
 
+	function handleCancel(event) {
+		event.preventDefault();
+		navigate('/');
+	}
+
 	return (
-		<Form
-			className='create-post d-flex flex-column align-items-center p-3 gap-3 mt-5'
-			onSubmit={handleSubmit}>
-			<Form.Group controlId='title'>
-				<Form.Control
-					className='title-input'
-					type='text'
-					// placeholder='Title'
-					// placeholder={currentPost.title}
-					value={currentPost.title}
-					onChange={handleChange}
-				/>
-			</Form.Group>
-
-			<Form.Group controlId='body'>
-				<Form.Control
-					className='body-input d-flex justify-content-start'
-					type='text'
-					// placeholder='Your Text'
-					// placeholder={currentPost.body}
-					onChange={handleChange}
-					value={currentPost.body}
-				/>
-			</Form.Group>
-
-			<div className='bottom-button-container d-flex justify-content-end gap-2'>
-				<button className='btn'>Cancel</button>
-				<button className='btn'>Update</button>
-			</div>
-		</Form>
+		<div className='d-flex flex-column p-3 gap-3 align-items-center create-post-container'>
+			<Form
+				className='create-post d-flex flex-column p-3 gap-3 mt-5 justify-content-center'
+				onSubmit={handleSubmit}>
+				<Form.Group controlId='title'>
+					<Form.Control
+						className='title-input'
+						type='text'
+						// placeholder='Title'
+						// placeholder={currentPost.title}
+						value={currentPost.title}
+						onChange={handleChange}
+					/>
+				</Form.Group>
+				<Form.Group controlId='body'>
+					<Form.Control
+						className='body-input d-flex justify-content-start'
+						type='text'
+						// placeholder='Your Text'
+						// placeholder={currentPost.body}
+						onChange={handleChange}
+						value={currentPost.body}
+					/>
+				</Form.Group>
+				<div className='bottom-button-container d-flex justify-content-end gap-2'>
+					<button className='btn' type='button' onClick={handleCancel}>
+						Cancel
+					</button>
+					<button className='btn' type='submit'>
+						Update
+					</button>
+				</div>
+			</Form>
+		</div>
 	);
 }
 

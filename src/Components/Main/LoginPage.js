@@ -45,11 +45,11 @@ function LoginPage( {setLoggedIn} ) {
 		console.log(formState);
 
 	return (
-		<Container style={{ height: '6em', width: '30em', display: 'grid' }}>
+		<Container className='login-form-container'>
 			<Form
 				onSubmit={handleLogIn}
 				id='sign-in-form'
-				className='text-center w-100 form mt-5'
+				className='text-center form mt-5 login-form'
 				style={{
 					padding: '1em 3em',
 				}}>
@@ -100,7 +100,6 @@ function LoginPage( {setLoggedIn} ) {
 
 				{/* <p className='text-muted'>&copy; 2021-2022</p> */}
 			</Form>
-			
 		</Container>
 	);
 }
